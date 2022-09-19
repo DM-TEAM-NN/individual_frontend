@@ -1,9 +1,9 @@
 import React, { useMemo } from "react";
 
 import Logo from "@images/Logo";
-import { Button, Grid, Typography } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 
-import { StyledNavBar } from "./NavBarStyled";
+import { StyledNavBar, StyledNavItem } from "./NavBarStyled";
 import { NavBarProps } from "./NavBarTypes";
 
 const NavBar = (props: NavBarProps) => {
@@ -11,7 +11,7 @@ const NavBar = (props: NavBarProps) => {
     const navigationItems = ["Home", "About", "Contact", "Services"];
     return navigationItems.map((item) => (
       <Grid item>
-        <Typography variant="body1">{item}</Typography>
+        <StyledNavItem variant="body1">{item}</StyledNavItem>
       </Grid>
     ));
   }, []);
