@@ -1,18 +1,19 @@
-import React from "react";
+import React, { useMemo } from "react";
 
-import HeaderSection from "@components/HeaderSection";
-import styled from "@emotion/styled";
-
-const StyledAppContainer = styled("div")`
-  max-width: 1440px;
-  margin: 0 auto;
-`;
+import routes from "@lib/routes";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 function App() {
+  const pages = useMemo(() => {
+    return routes.map((route) => (
+      <Route key={route.path} path={route.path} element={route.element}></Route>
+    ));
+  }, []);
+
   return (
-    <StyledAppContainer>
-      <HeaderSection />
-    </StyledAppContainer>
+    <BrowserRouter>
+      <Routes>{pages}</Routes>
+    </BrowserRouter>
   );
 }
 
