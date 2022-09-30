@@ -1,12 +1,15 @@
-import React, { useMemo } from "react";
+import React, { useCallback, useMemo } from "react";
 
 import Logo from "@images/Logo";
 import { Button, Grid } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 import { StyledNavBar, StyledNavItem } from "./NavBarStyled";
 import { NavBarProps } from "./NavBarTypes";
 
 const NavBar = (props: NavBarProps) => {
+  const navigate = useNavigate();
+
   const navigation = useMemo(() => {
     const navigationItems = ["Home", "About", "Contact", "Services"];
     return navigationItems.map((item) => (
@@ -15,6 +18,10 @@ const NavBar = (props: NavBarProps) => {
       </Grid>
     ));
   }, []);
+
+  const handleAuthClick = useCallback(() => {
+    navigate("/auth");
+  }, [navigate]);
 
   return (
     <StyledNavBar>
@@ -25,7 +32,9 @@ const NavBar = (props: NavBarProps) => {
         {navigation}
       </Grid>
       <Grid item sx={{ minWidth: "100px" }}>
-        <Button variant="contained">Sign in</Button>
+        <Button variant="contained" onClick={handleAuthClick}>
+          Sign in
+        </Button>
       </Grid>
     </StyledNavBar>
   );

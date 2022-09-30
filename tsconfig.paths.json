@@ -11,7 +11,8 @@
       "@hooks/*": ["src/hooks/*"],
       "@axios/*": ["src/axios/*"],
       "@models/*": ["src/models/*"],
-      "@images/*": ["src/images/*"]
+      "@images/*": ["src/images/*"],
+      "@pages/*": ["src/pages/*"]
     }
   }
 }
